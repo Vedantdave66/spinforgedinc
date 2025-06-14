@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpinForged Inc.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config for dark mode
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-black dark:bg-white text-white dark:text-black transition duration-500">
+
+  <!-- Navbar -->
+  <header class="w-full fixed top-0 left-0 bg-black dark:bg-white z-50 shadow-md transition duration-500">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+      <!-- Logo -->
+    <a href="#logo" class="flex items-center space-x-2">
+      <img src="assets/logo.png" alt="SpinForged Logo"
+        class="w-20 h-20 object-contain drop-shadow-lg hover:scale-110 transition-transform duration-300">
+    </a>
+      <!-- Centered Nav -->
+      <nav class="absolute left-1/2 transform -translate-x-1/2">
+        <ul class="flex space-x-6 text-lg font-medium">
+          <li><a href="#home" class="hover:text-red-500 dark:hover:text-red-600 transition duration-300">HOME</a></li>
+          <li><a href="#products" class="hover:text-green-500 dark:hover:text-green-600 transition duration-300">PRODUCTS</a></li>
+          <li><a href="#contact" class="hover:text-blue-500 dark:hover:text-blue-600 transition duration-300">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Dark Mode Toggle -->
+      <button id="darkToggle" class="text-white dark:text-black border border-white dark:border-black px-3 py-1 rounded hover:bg-white dark:hover:bg-black hover:text-black dark:hover:text-white transition duration-300">
+        Toggle
+      </button>
+    </div>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1606157028240-d040e0f8b25e');">
+    <h1 class="text-5xl font-bold bg-black bg-opacity-50 px-6 py-4 rounded dark:bg-white dark:bg-opacity-60 dark:text-black">Welcome to SpinForged</h1>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="py-20 px-6 bg-gray-900 dark:bg-gray-100 transition duration-500">
+    <h2 class="text-4xl font-semibold text-center mb-10">Our Rims</h2>
+
+  <!-- Carousel -->
+  <div class="flex overflow-x-auto space-x-6 snap-x snap-mandatory justify-center px-4">
+    <div class="snap-center shrink-0 w-72 bg-gray-800 dark:bg-white p-4 rounded-lg shadow-lg">
+      <img src="https://images.unsplash.com/photo-1605296867424-35fc25c9212d" class="rounded mb-4" alt="Rim 1">
+      <h3 class="text-xl font-bold dark:text-black">Matte Black 18"</h3>
+      <p class="text-gray-400 dark:text-gray-700">$499</p>
+    </div>
+
+    <div class="snap-center shrink-0 w-72 bg-gray-800 dark:bg-white p-4 rounded-lg shadow-lg">
+      <img src="https://images.unsplash.com/photo-1616443783069-9b2d441e2c9d" class="rounded mb-4" alt="Rim 2">
+      <h3 class="text-xl font-bold dark:text-black">Chrome Classic 20"</h3>
+      <p class="text-gray-400 dark:text-gray-700">$649</p>
+    </div>
+
+    <div class="snap-center shrink-0 w-72 bg-gray-800 dark:bg-white p-4 rounded-lg shadow-lg">
+      <img src="https://images.unsplash.com/photo-1622171718140-0277f4ef35ab" class="rounded mb-4" alt="Rim 3">
+      <h3 class="text-xl font-bold dark:text-black">Forged Silver 19"</h3>
+      <p class="text-gray-400 dark:text-gray-700">$729</p>
+    </div>
+  </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 bg-black dark:bg-white transition duration-500">
+    <h2 class="text-4xl font-semibold text-center mb-8">Contact Us</h2>
+    <form class="max-w-xl mx-auto space-y-6">
+      <input type="text" placeholder="Name" class="w-full p-3 bg-gray-800 dark:bg-gray-200 rounded text-white dark:text-black placeholder-gray-400 dark:placeholder-gray-600">
+      <input type="email" placeholder="Email" class="w-full p-3 bg-gray-800 dark:bg-gray-200 rounded text-white dark:text-black placeholder-gray-400 dark:placeholder-gray-600">
+      <textarea placeholder="Your message" rows="4" class="w-full p-3 bg-gray-800 dark:bg-gray-200 rounded text-white dark:text-black placeholder-gray-400 dark:placeholder-gray-600"></textarea>
+      <button type="submit" class="w-full bg-red-500 hover:bg-red-600 py-3 rounded font-semibold text-white">Send Message</button>
+    </form>
+  </section>
+
+  <script>
+    const toggle = document.getElementById('darkToggle');
+    const html = document.documentElement;
+
+    // Load theme from localStorage
+    if (localStorage.getItem('theme') === 'light') {
+      html.classList.remove('dark');
+    }
+
+    toggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>
